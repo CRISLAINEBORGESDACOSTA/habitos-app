@@ -21,7 +21,7 @@ def main(page: ft.Page):
         done = list(filter(lambda x: x['done'], habits_list)) 
         total = len(done) / len(habits_list)
         progress_bar.value = f'{total:.2f}'
-        progress_text.value = f'{total: .0%)}' 
+        progress_text.value = f'{total:.0%}' 
         progress_bar.update()
         progress_text.update()
 
@@ -30,7 +30,7 @@ def main(page: ft.Page):
         habits.content.controls = [
             ft.Checkbox(
                 label=hl['title'],
-                value=hl['done']
+                value=hl['done'],
                 on_change=change
             ) for hl in habits_list
         ]
@@ -82,7 +82,7 @@ def main(page: ft.Page):
                     controls =[
                         ft.Checkbox(
                             label=hl['title'],
-                            value=hl['done']
+                            value=hl['done'],
                             on_change=change
                         ) for hl in habits_list
                     ]
