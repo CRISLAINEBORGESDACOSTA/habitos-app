@@ -1,9 +1,13 @@
-# A habitos Flet app
+# Muitos App
+Um aplicativo simples para o comtrole de hábitos diários
 
-An example of a minimal Flet app.
+## Requisitos
+`
+-Python 3.x
+-Biblioteca Flet
+-SQLite
+-Sistema Operacional windows
 
-To run the app:
-
-```
-flet run [app_directory]
-```
+## Instalação`
+1. Clone o repositório para sua máquina local
+2. Execute o comando flet run no cmd`
