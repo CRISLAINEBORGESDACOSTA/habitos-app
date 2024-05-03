@@ -39,7 +39,14 @@ def main(page: ft.Page):
         
  
     def delete_habit(e, habit_id):
-       
+        conn = sqlite3.connect('habits.db')
+        cursor = conn.cursor()
+        cursor.execute('DELETE FROM habits WHERE id = ?', (habit_id))
+
+        conn.commit()
+        conn.close()
+
+        refresh_habits_ui()
  
     def edit_habit(e, habit_id):
         conn = sqlite3.connect('habits.db')
@@ -54,7 +61,12 @@ def main(page: ft.Page):
         habit = cursor.fetchone()
         if habit is not None:
             # Substituir o checkbox por um Textfield
-            index = habits_list.index(habit)
+            index = 0
+            for i, h in enumerate(habits_list):
+                if h[0] == habit_id:
+                    index = i
+                    break
+                if index is not Nome:
             habits.content.controls[index] = ft.Row(
                 controls =[
                     ft.TextField(
@@ -64,7 +76,7 @@ def main(page: ft.Page):
                     )
                 ]
             )
-            habits.update()
+                
    
     def update_habit_title(e, habit):
         conn = sqlite3.connect('habits.db')
